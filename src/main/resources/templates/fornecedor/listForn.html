@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{template.html}">
+
+<head>
+<meta charset="UTF-8">
+<title>Lista de Fornecedores</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
+	<script>
+        function confirmDelete(event) {
+            const confirmed = confirm("Você tem certeza que deseja excluir este fornecedor?");
+            if (!confirmed) {
+                event.preventDefault(); // Cancela a ação se o usuário não confirmar
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+	<div layout:fragment="conteudo">
+		<div class="container bg-light p-4">
+			<h1>Listas de Fornecedores</h1>
+			<a href="/fornecedor" class="btn btn-success mb-3">Novo</a>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Razão Social</th>
+						<th>Nome Fantasia</th>
+						<th>Data Abertura</th>
+						<th>Capital Inicial</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="fornecedor : ${lista}">
+						<td th:text="${fornecedor.razaoSocial}"></td>
+						<td th:text="${fornecedor.nomeFantasia}"></td>
+						<td th:text="${fornecedor.dtabert}"></td>
+						<td th:text="${fornecedor.capitalInic}"></td>
+						<td>
+						
+						<a th:href="@{/fornecedor/cadFornecedor(id=${fornecedor.id})}" class="btn btn-primary">Editar</a>
+
+							<form action="/fornecedor" method="post" class="d-inline" onsubmit="confirmDelete(event)">
+								<input type="hidden" name="_method" value="delete"> 
+								<input type="hidden" name="id" th:value="${fornecedor.id}"> 
+								<input type="submit" value="Excluir" class="btn btn-danger">
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>

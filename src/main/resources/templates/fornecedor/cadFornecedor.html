@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR" 
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{template.html}">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Fornecedor</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div layout:fragment="conteudo">
+		<div class="container bg-light p-4">
+			<h1 class="mb-4">Cadastro de Fornecedor</h1>
+
+			<a href="/fornecedor/listForn" class="btn btn-success mb-3">Listar</a>
+
+			<form th:action="@{/fornecedor}" method="post">
+				<input type="hidden" th:if="${fornecedor.id}" name="id"
+					th:value="${fornecedor.id}" />
+
+				<div class="form-group">
+					<label for="razaoSocial">Razão Social:</label> 
+					<input type="text" id="razaoSocial" name="razaoSocial"
+						th:value="${fornecedor.razaoSocial}" required class="form-control"/>
+				</div>
+
+				<div class="form-group">
+					<label for="nomeFantasia">Nome Fantasia:</label> 
+					<input type="text" id="nomeFantasia" name="nomeFantasia"
+						th:value="${fornecedor.nomeFantasia}" required class="form-control"/>
+				</div>
+
+				<div class="form-group">
+					<label for="dtabert">Data Abertura:</label> 
+					<input type="date" id="dtabert" name="dtabert" th:value="${fornecedor.dtabert}"
+						required class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label for="capitalInic">Capital Inicial:</label> 
+					<input type="number" id="capitalInic" name="capitalInic"
+						th:value="${fornecedor.capitalInic}" required class="form-control"/>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</form>
+
+		</div>
+	</div>
