@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://thymeleaf.org"
+<html lang="pt-BR" 
+	xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{template.html}">
 
@@ -19,8 +20,21 @@
     </script>
 
 </head>
-
 <body>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">FornecedorApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/fornecedor">Cadastro de Fornecedor</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 	<div layout:fragment="conteudo">
 		<div class="container bg-light p-4">
 			<h1>Listas de Fornecedores</h1>
@@ -57,3 +71,13 @@
 			</table>
 		</div>
 	</div>
+	<footer class="bg-light text-center text-lg-start mt-4">
+        <div class="text-center p-3">
+            &copy; 2024 FornecedorApp - Todos os direitos reservados
+        </div>
+    </footer>
+ 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -7,42 +7,54 @@
 <meta charset="UTF-8">
 <title>Cadastro de Fornecedor</title>
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+        body {
+            background-color: #f8f9fa;
+        }
+    </style>
 
 </head>
 <body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">FornecedorApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/fornecedor/listForn">Listar Fornecedores</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 	<div layout:fragment="conteudo">
-		<div class="container bg-light p-4">
+		<div class="container bg-white p-4 mt-4 rounded shadow">
 			<h1 class="mb-4">Cadastro de Fornecedor</h1>
-
-			<a href="/fornecedor/listForn" class="btn btn-success mb-3">Listar</a>
-
+			
 			<form th:action="@{/fornecedor}" method="post">
-				<input type="hidden" th:if="${fornecedor.id}" name="id"
-					th:value="${fornecedor.id}" />
+				<input type="hidden" th:if="${fornecedor.id}" name="id"	th:value="${fornecedor.id}" />
 
 				<div class="form-group">
 					<label for="razaoSocial">Razão Social:</label> 
-					<input type="text" id="razaoSocial" name="razaoSocial"
-						th:value="${fornecedor.razaoSocial}" required class="form-control"/>
+					<input type="text" id="razaoSocial" name="razaoSocial" th:value="${fornecedor.razaoSocial}" required class="form-control" placeholder="Digite a razão social"/>
 				</div>
 
 				<div class="form-group">
 					<label for="nomeFantasia">Nome Fantasia:</label> 
-					<input type="text" id="nomeFantasia" name="nomeFantasia"
-						th:value="${fornecedor.nomeFantasia}" required class="form-control"/>
+					<input type="text" id="nomeFantasia" name="nomeFantasia" th:value="${fornecedor.nomeFantasia}" required class="form-control" placeholder="Digite a nome fantasia"/>
 				</div>
 
 				<div class="form-group">
 					<label for="dtabert">Data Abertura:</label> 
-					<input type="date" id="dtabert" name="dtabert" th:value="${fornecedor.dtabert}"
-						required class="form-control" />
+					<input type="date" id="dtabert" name="dtabert" th:value="${fornecedor.dtabert}"	required class="form-control" />
 				</div>
 
 				<div class="form-group">
 					<label for="capitalInic">Capital Inicial:</label> 
 					<input type="number" id="capitalInic" name="capitalInic"
-						th:value="${fornecedor.capitalInic}" required class="form-control"/>
+						th:value="${fornecedor.capitalInic}" required class="form-control" placeholder="Digite o capital inicial"/>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Salvar</button>
@@ -50,3 +62,13 @@
 
 		</div>
 	</div>
+	<footer class="bg-light text-center text-lg-start mt-4">
+        <div class="text-center p-3">
+            &copy; 2024 FornecedorApp - Todos os direitos reservados
+        </div>
+    </footer>
+ 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
