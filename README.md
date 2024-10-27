@@ -16,6 +16,7 @@ FornecedorApp é uma aplicação web desenvolvida com Spring Boot e Thymeleaf pa
 - Listagem de fornecedores
 - Edição de fornecedores
 - Exclusão de fornecedores
+- Filtros para busca de fornecedores
 
 ## Pré-requisitos
 
