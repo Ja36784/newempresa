@@ -17,7 +17,7 @@
                 event.preventDefault(); // Cancela a ação se o usuário não confirmar
             }
         }
-    </script>
+    </script>    
 
 </head>
 <body>
@@ -39,6 +39,23 @@
 		<div class="container bg-light p-4">
 			<h1>Listas de Fornecedores</h1>
 			<a href="/fornecedor" class="btn btn-success mb-3">Novo</a>
+			
+			 <form action="/fornecedor/listForn" method="get" class="mb-3">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="razaoSocial">Razão Social</label>
+                <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" th:value="${razaoSocial}" placeholder="Digite a razão social">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="nomeFantasia">Nome Fantasia</label>
+                <input type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" th:value="${nomeFantasia}" placeholder="Digite o nome fantasia">
+            </div>
+            <div class="form-group col-md-2">
+                <label>&nbsp;</label>
+                <button type="submit" class="btn btn-primary form-control">Buscar</button>
+            </div>
+        </div>
+    </form>
 
 			<table class="table">
 				<thead>

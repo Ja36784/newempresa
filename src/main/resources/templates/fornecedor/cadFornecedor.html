@@ -37,27 +37,27 @@
 				<input type="hidden" th:if="${fornecedor.id}" name="id"	th:value="${fornecedor.id}" />
 
 				<div class="form-group">
-					<label for="razaoSocial">Razão Social:</label> 
+					<label for="razaoSocial" class="btn btn-info">Razão Social:</label> 
 					<input type="text" id="razaoSocial" name="razaoSocial" th:value="${fornecedor.razaoSocial}" required class="form-control" placeholder="Digite a razão social"/>
 				</div>
 
 				<div class="form-group">
-					<label for="nomeFantasia">Nome Fantasia:</label> 
+					<label for="nomeFantasia"class="btn btn-info">Nome Fantasia:</label> 
 					<input type="text" id="nomeFantasia" name="nomeFantasia" th:value="${fornecedor.nomeFantasia}" required class="form-control" placeholder="Digite a nome fantasia"/>
 				</div>
 
 				<div class="form-group">
-					<label for="dtabert">Data Abertura:</label> 
+					<label for="dtabert"class="btn btn-info">Data Abertura:</label> 
 					<input type="date" id="dtabert" name="dtabert" th:value="${fornecedor.dtabert}"	required class="form-control" />
 				</div>
 
 				<div class="form-group">
-					<label for="capitalInic">Capital Inicial:</label> 
+					<label for="capitalInic"class="btn btn-info">Capital Inicial:</label> 
 					<input type="number" id="capitalInic" name="capitalInic"
 						th:value="${fornecedor.capitalInic}" required class="form-control" placeholder="Digite o capital inicial"/>
 				</div>
 
-				<button type="submit" class="btn btn-primary">Salvar</button>
+				<button type="submit" class="btn btn-info">Salvar</button>
 			</form>
 
 		</div>

@@ -1,5 +1,7 @@
 package com.kaspperAcad.empresa.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,8 +34,22 @@ public class FornecedorController {
 
     // Método para listar os fornecedor
     @GetMapping("/listForn")
-    public String carregaPaginaListagem(Model model) {
-        model.addAttribute("lista", repository.findAll()); // Passa a lista para view
+    public String carregaPaginaListagem(@RequestParam(required = false) String razaoSocial,
+            							@RequestParam(required = false) String nomeFantasia,
+            							Model model) {
+    	List<Fornecedor> lista;
+        
+        if (razaoSocial != null && !razaoSocial.isEmpty()) {
+            lista = repository.findByRazaoSocialContainingIgnoreCase(razaoSocial);
+        } else if (nomeFantasia != null && !nomeFantasia.isEmpty()) {
+            lista = repository.findByNomeFantasiaContainingIgnoreCase(nomeFantasia);
+        } else {
+            lista = repository.findAll(); // Retorna todos se não houver filtros
+        }
+        
+        model.addAttribute("lista", lista); // Passa a lista para view
+        model.addAttribute("razaoSocial", razaoSocial); // Para manter o valor no campo de busca
+        model.addAttribute("nomeFantasia", nomeFantasia); // Para manter o valor no campo de busca
         return "fornecedor/listForn"; // Retorna a view de listagem
     }
 
@@ -71,7 +87,8 @@ public class FornecedorController {
         repository.deleteById(id);
         System.out.println("Fornecedor EXCLUÍDO!");
         return "redirect:/fornecedor/listForn"; // Redireciona para a listagem
-    }    
+    }
+    
   
 }
 
